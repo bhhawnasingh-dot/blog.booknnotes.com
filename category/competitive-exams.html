@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competitive Exams Notes – BookNNotes</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <meta name="description" content="Free study notes for Competitive Exams – all subjects and latest updates in one place.">
+</head>
+<body>
+
+<header>
+  <h1>🏆 Competitive Exams Notes</h1>
+  <p>All free study notes for Competitive Exams in one place</p>
+</header>
+
+<section>
+  <h2>📌 Latest Competitive Exams Notes</h2>
+  <ul id="category-posts">
+    <li>Loading notes...</li>
+  </ul>
+</section>
+
+<footer>
+  <a href="../privacy.html">Privacy Policy</a> | 
+  <a href="../terms.html">Terms & Conditions</a><br><br>
+  © 2025 BookNNotes
+</footer>
+
+<script>
+fetch('../data/posts.json')
+  .then(res => res.json())
+  .then(posts => {
+    const ul = document.getElementById('category-posts');
+    const filteredPosts = posts.filter(post => post.category === 'competitive-exams');
+    ul.innerHTML = ''; // clear loading message
+    if(filteredPosts.length === 0){
+      ul.innerHTML = '<li>No notes available at the moment.</li>';
+    } else {
+      filteredPosts.forEach(post => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = post.link;
+        a.textContent = post.title;
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById('category-posts').innerHTML = '<li>Failed to load notes. Please try again later.</li>';
+  });
+</script>
+
+</body>
+</html>
