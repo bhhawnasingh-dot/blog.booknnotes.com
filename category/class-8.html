@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 8 Notes – BookNNotes</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>📘 Class 8 Notes</h1>
+  <p>All Class 8 free study notes in one place</p>
+</header>
+
+<section>
+  <h2>📌 Latest Class 8 Notes</h2>
+  <ul id="category-posts"></ul>
+</section>
+
+<footer>
+  <a href="../privacy.html">Privacy Policy</a> | 
+  <a href="../terms.html">Terms & Conditions</a><br><br>
+  © 2025 BookNNotes
+</footer>
+
+<script>
+fetch('../data/posts.json')
+  .then(res => res.json())
+  .then(posts => {
+    const ul = document.getElementById('category-posts');
+    posts.filter(post => post.category === 'class-8') // filter by Class 8
+         .forEach(post => {
+           const li = document.createElement('li');
+           const a = document.createElement('a');
+           a.href = post.link;
+           a.textContent = post.title;
+           li.appendChild(a);
+           ul.appendChild(li);
+         });
+  })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>
