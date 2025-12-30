@@ -1,1 +1,74 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Notes & Daily Study Blog – BookNNotes</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+body { font-family: Arial, sans-serif; margin:0; background:#f7f7f7; color:#333; }
+header { background: linear-gradient(135deg,#ff9800,#ff5722); color:#fff; text-align:center; padding:50px 20px; }
+header h1 { font-size:2.5rem; margin-bottom:10px; }
+section { max-width:900px; margin:40px auto; padding:0 20px; }
+h2 { color:#ff5722; }
+ul { list-style:none; padding:0; }
+ul li { margin-bottom:10px; }
+ul li a { text-decoration:none; color:#4f46e5; font-weight:bold; }
+ul li a:hover { text-decoration:underline; }
+.support { background:#fff3e0; padding:20px; border:2px dashed #ff9800; text-align:center; margin:30px 0; border-radius:10px; }
+.support img { max-width:150px; margin:10px auto; display:block; }
+.whatsapp { text-align:center; margin:30px 0; }
+.whatsapp a { background:#25D366; color:#fff; padding:15px 30px; border-radius:50px; text-decoration:none; font-size:18px; display:inline-block; }
+footer { text-align:center; padding:20px; background:#111827; color:#fff; margin-top:40px; }
+footer a { color:#fff; text-decoration:none; margin:0 5px; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>📘 Free Notes & Daily Study Blog</h1>
+<p>Class 8–10 & Competitive Exams – Daily Free Notes</p>
+</header>
+
+<section>
+<h2>📌 Latest Notes</h2>
+<ul id="latest-notes"></ul>
+</section>
+
+<section class="support">
+<h2>☕ Support BookNNotes</h2>
+<p>Ek cup coffee dekar support karein ❤️</p>
+<img src="images/super-thanks.png" alt="Super Thanks">
+<p>UPI: aawam.welfare.society-1@okaxis</p>
+</section>
+
+<section class="whatsapp">
+<h2>Need Help / Contact?</h2>
+<a href="https://wa.me/91XXXXXXXXXX" target="_blank">Chat on WhatsApp</a>
+</section>
+
+<footer>
+<a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a><br><br>
+© 2025 BookNNotes
+</footer>
+
+<script>
+fetch('data/posts.json')
+.then(res => res.json())
+.then(posts => {
+  const ul = document.getElementById('latest-notes');
+  posts.forEach(post => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = post.link;
+    a.textContent = post.title;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+})
+.catch(err => console.error('Error loading posts:', err));
+</script>
+
+</body>
+</html>
