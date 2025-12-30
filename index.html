@@ -1,39 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Free Notes & Daily Study Blog – BookNNotes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Notes & Daily Study Blog – BookNNotes</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f7f9fc; color:#333; }
+  header { text-align:center; padding:50px 20px; background: linear-gradient(135deg,#f97316,#fb923c); color:#fff; }
+  header h1 { font-size:2.5rem; margin-bottom:10px; }
+  header p { font-size:1.1rem; }
+  section { padding:40px 20px; max-width:1100px; margin:auto; }
+  h2 { text-align:center; margin-bottom:25px; color:#f97316; }
+  ul { list-style:none; padding:0; }
+  li { margin-bottom:12px; }
+  a { color:#f97316; text-decoration:none; font-weight:bold; }
+  a:hover { text-decoration:underline; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:20px; }
+  .card { background:#fff; padding:20px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.05); text-align:center; }
+  .card a { display:inline-block; margin-top:15px; }
+  .whatsapp { text-align:center; margin-top:40px; }
+  .whatsapp a { background:#25D366; color:#fff; padding:12px 25px; border-radius:50px; font-size:16px; display:inline-block; text-decoration:none; }
+  .support-box { background:#fff8e1; padding:25px; text-align:center; border:2px dashed #ff9800; margin-top:30px; border-radius:12px; }
+  .support-box img { max-width:150px; display:block; margin:15px auto; }
+  footer { background:#111827; color:#fff; text-align:center; padding:20px; font-size:14px; }
+  footer a { color:#fff; text-decoration:none; font-weight:bold; margin:0 5px; }
+</style>
 </head>
 <body>
 
-<h1>📘 Free Notes (Class 8–10 & Competitive Exams)</h1>
-<p>Daily free study notes – simple language.</p>
+<!-- ===================== HEADER / HERO ===================== -->
+<header>
+  <h1>📘 Free Notes & Daily Study Blog</h1>
+  <p>Class 8–10 & Competitive Exams – Simple, Daily Notes</p>
+</header>
 
-<h2>📌 Latest Notes</h2>
-<ul>
-  <li><a href="posts/day-1-notes.html">Day 1 – Maths Notes</a></li>
-  <li><a href="posts/class-10-maths.html">Class 10 Maths – Full Notes</a></li>
-  <li><a href="posts/real-numbers.html">Real Numbers</a></li>
-  <li><a href="posts/polynomials.html">Polynomials</a></li>
-</ul>
+<!-- ===================== LATEST NOTES ===================== -->
+<section id="latest-notes">
+  <h2>📌 Latest Notes</h2>
+  <ul id="postList"></ul>
+</section>
 
-<h2>📚 Categories</h2>
-<ul>
-  <li><a href="category/class-8.html">Class 8</a></li>
-  <li><a href="category/class-9.html">Class 9</a></li>
-  <li><a href="category/class-10.html">Class 10</a></li>
-  <li><a href="category/competitive-exams.html">Competitive Exams</a></li>
-</ul>
+<!-- ===================== CATEGORIES ===================== -->
+<section id="categories">
+  <h2>📚 Categories</h2>
+  <div class="grid">
+    <div class="card"><a href="category/class-8.html">Class 8</a></div>
+    <div class="card"><a href="category/class-9.html">Class 9</a></div>
+    <div class="card"><a href="category/class-10.html">Class 10</a></div>
+    <div class="card"><a href="category/competitive-exams.html">Competitive Exams</a></div>
+  </div>
+</section>
 
-<hr>
+<!-- ===================== FEATURED TOOLS ===================== -->
+<section id="featured-tools">
+  <h2>🛠 Featured Web Tools</h2>
+  <div class="grid">
+    <div class="card"><a href="https://web.booknnotes.com">Explore Tools</a></div>
+  </div>
+</section>
 
+<!-- ===================== HIRE ME / CONTACT ===================== -->
+<section class="whatsapp">
+  <h2>Need Any Help?</h2>
+  <p>Small projects / guidance / website support</p>
+  <a href="https://wa.me/91XXXXXXXXXX" target="_blank">Chat on WhatsApp</a>
+</section>
+
+<!-- ===================== SUPPORT / SUPER THANKS ===================== -->
+<section class="support-box">
+  <h2>☕ Support BookNNotes</h2>
+  <p>Give a cup of coffee or UPI support ❤️</p>
+  <img src="images/super-thanks.png" alt="Super Thanks Support">
+  <p><strong>Jai Sidh Data Ganesh</strong><br>UPI ID: aawam.welfare.society-1@okaxis</p>
+  <p>One coffee = One Thank You!</p>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
 <footer>
   <a href="privacy.html">Privacy Policy</a> |
   <a href="terms.html">Terms & Conditions</a><br><br>
   © 2025 BookNNotes
 </footer>
+
+<!-- ===================== AUTO LOAD POSTS ===================== -->
+<script>
+fetch("data/posts.json")
+  .then(res => res.json())
+  .then(posts => {
+    const list = document.getElementById("postList");
+    posts.forEach(post => {
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="${post.link}">${post.title}</a>`;
+      list.appendChild(li);
+    });
+  });
+</script>
 
 </body>
 </html>
