@@ -1,73 +1,102 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Notes & Daily Study Blog – BookNNotes</title>
-<link rel="stylesheet" href="css/style.css">
-<style>
-body { font-family: Arial, sans-serif; margin:0; background:#f7f7f7; color:#333; }
-header { background: linear-gradient(135deg,#ff9800,#ff5722); color:#fff; text-align:center; padding:50px 20px; }
-header h1 { font-size:2.5rem; margin-bottom:10px; }
-section { max-width:900px; margin:40px auto; padding:0 20px; }
-h2 { color:#ff5722; }
-ul { list-style:none; padding:0; }
-ul li { margin-bottom:10px; }
-ul li a { text-decoration:none; color:#4f46e5; font-weight:bold; }
-ul li a:hover { text-decoration:underline; }
-.support { background:#fff3e0; padding:20px; border:2px dashed #ff9800; text-align:center; margin:30px 0; border-radius:10px; }
-.support img { max-width:150px; margin:10px auto; display:block; }
-.whatsapp { text-align:center; margin:30px 0; }
-.whatsapp a { background:#25D366; color:#fff; padding:15px 30px; border-radius:50px; text-decoration:none; font-size:18px; display:inline-block; }
-footer { text-align:center; padding:20px; background:#111827; color:#fff; margin-top:40px; }
-footer a { color:#fff; text-decoration:none; margin:0 5px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Notes & Daily Study Blog – BookNNotes</title>
+
+  <!-- Adsense (optional – add only if approved) -->
+  <!--
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
+    crossorigin="anonymous"></script>
+  -->
+
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f7f7f7; color:#333; }
+    header { background: linear-gradient(135deg,#ff9800,#ff5722); color:#fff; text-align:center; padding:50px 20px; }
+    header h1 { font-size:2.5rem; margin-bottom:10px; }
+
+    nav { text-align:center; background:#fff; padding:15px; }
+    nav a { margin:0 10px; text-decoration:none; font-weight:bold; color:#4f46e5; }
+
+    section { max-width:900px; margin:40px auto; padding:0 20px; }
+    h2 { color:#ff5722; }
+
+    ul { list-style:none; padding:0; }
+    ul li { margin-bottom:10px; }
+    ul li a { text-decoration:none; color:#4f46e5; font-weight:bold; }
+    ul li a:hover { text-decoration:underline; }
+
+    .whatsapp { text-align:center; margin:40px 0; }
+    .whatsapp a {
+      background:#25D366; color:#fff; padding:15px 30px;
+      border-radius:50px; text-decoration:none; font-size:18px;
+      display:inline-block;
+    }
+
+    footer { text-align:center; padding:20px; background:#111827; color:#fff; }
+    footer a { color:#fff; text-decoration:none; margin:0 5px; }
+  </style>
 </head>
+
 <body>
 
 <header>
-<h1>📘 Free Notes & Daily Study Blog</h1>
-<p>Class 8–10 & Competitive Exams – Daily Free Notes</p>
+  <h1>📘 Free Notes & Daily Study Blog</h1>
+  <p>Class 8–10 & Competitive Exams – Free Notes & PDFs</p>
 </header>
 
+<!-- Categories Navigation -->
+<nav>
+  <a href="class-8.html">Class 8</a> |
+  <a href="class-9.html">Class 9</a> |
+  <a href="class-10.html">Class 10</a> |
+  <a href="competitive-exams.html">Competitive Exams</a>
+</nav>
+
+<!-- Latest Notes -->
 <section>
-<h2>📌 Latest Notes</h2>
-<ul id="latest-notes"></ul>
+  <h2>📌 Latest Notes</h2>
+  <ul id="latest-notes"></ul>
 </section>
 
-<section class="support">
-<h2>☕ Support BookNNotes</h2>
-<p>Ek cup coffee dekar support karein ❤️</p>
-<img src="images/super-thanks.png" alt="Super Thanks">
-<p>UPI: aawam.welfare.society-1@okaxis</p>
-</section>
-
+<!-- WhatsApp Guidance -->
 <section class="whatsapp">
-<h2>Need Help / Contact?</h2>
-<a href="https://wa.me/919105371051" target="_blank">Chat on WhatsApp</a>
+  <h2>📲 PDF Notes & Study Guidance</h2>
+  <p>
+    PDF notes, exam preparation aur personal guidance ke liye  
+    WhatsApp par contact karein 👇
+  </p>
+  <a href="https://wa.me/919105371051?text=Hello%20I%20need%20PDF%20notes%20and%20study%20guidance"
+     target="_blank">
+     Chat on WhatsApp
+  </a>
 </section>
 
+<!-- Footer -->
 <footer>
-<a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a><br><br>
-© 2025 BookNNotes
+  <a href="privacy.html">Privacy Policy</a> |
+  <a href="terms.html">Terms & Conditions</a><br><br>
+  © 2025 BookNNotes
 </footer>
 
+<!-- Load Latest Notes -->
 <script>
 fetch('data/posts.json')
-.then(res => res.json())
-.then(posts => {
-  const ul = document.getElementById('latest-notes');
-  posts.forEach(post => {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = post.link;
-    a.textContent = post.title;
-    li.appendChild(a);
-    ul.appendChild(li);
-  });
-})
-.catch(err => console.error('Error loading posts:', err));
+  .then(res => res.json())
+  .then(posts => {
+    const ul = document.getElementById('latest-notes');
+    posts.forEach(post => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = post.link;
+      a.textContent = post.title;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  })
+  .catch(err => console.error('Error loading posts:', err));
 </script>
 
 </body>
