@@ -8,30 +8,37 @@
 
   <url>
     <loc>https://blog.booknnotes.com/class-8.html</loc>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://blog.booknnotes.com/class-9.html</loc>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://blog.booknnotes.com/class-10.html</loc>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://blog.booknnotes.com/competitive-exams.html</loc>
+    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://blog.booknnotes.com/posts/day-1-notes.html</loc>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://blog.booknnotes.com/posts/day-2-notes.html</loc>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://blog.booknnotes.com/posts/day-3-notes.html</loc>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
